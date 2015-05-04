@@ -1,0 +1,71 @@
+html, header, footer {
+    background-color: azure;
+    text-align: center;
+}
+
+body {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgreen;
+    font-family: sans-serif;
+}
+
+fieldset {
+    border: none;
+    width: 890px;
+}
+
+form table {
+    margin-left: 20px;
+    border: 1px black solid;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+form th {
+    background-color: aliceblue;
+}
+
+form td {
+    border: 1px black solid;
+    width: 50px;
+    height: 20px;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+form {
+    width: 400px;
+    float: left;
+}
+
+div {
+    width: 450px;
+    float: right;
+}
+
+div table {
+    margin-left: 60px;
+    width: 350px;
+    border: 1px black solid;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: honeydew;
+}
+
+div td {
+    border: 1px black solid;
+}
+
+div th {
+    background-color: aliceblue;
+}
+
+.merge {
+    background-color: darkseagreen;
+}
+

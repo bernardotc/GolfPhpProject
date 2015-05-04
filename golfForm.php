@@ -11,43 +11,55 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="golfStyle.css">
+    <script src="golfAJAX.js"></script>
     <title>Golf statistics</title>
 </head>
+<header>
+    <h1>Calculate your Golf round statistics</h1><br>
+</header>
 <body>
-<form>
-    <table>
-        <thead>
-        <th>Hole</th>
-        <th>Par</th>
-        <th>Score</th>
-        <th>Putts</th>
-        <th>Fairway</th>
-        <th colspan="2">Penalties</th>
-        </thead>
-        <tbody>
-        <?php
+<br>
+<fieldset>
+    <form>
+        <table>
+            <thead>
+            <th>Hole</th>
+            <th>Par</th>
+            <th>Score</th>
+            <th>Putts</th>
+            <th>Fairway</th>
+            <th>Penalties</th>
+            </thead>
+            <tbody>
+            <?php
             for($i = 1; $i < 19; $i++) {
                 echo "<tr>\n";
                 echo "<td>$i</td>\n";
-                echo "<td><input type = 'number' name = 'par".$i."' required value = '4' ></td>\n";
-                echo "<td><input type = 'number' name = 'score".$i."' required value = '4' ></td>\n";
-                echo "<td><input type = 'number' name = 'putts".$i."' required value = '2' ></td>\n";
+                echo "<td><input type = 'number' name = 'par".$i."' required value = '4' required onchange='checkPar(this)'></td>\n";
+                echo "<td><input type = 'number' name = 'score".$i."' required value = '4' required></td>\n";
+                echo "<td><input type = 'number' name = 'putts".$i."' required value = '2' required></td>\n";
                 echo "<td>\n";
-                    echo "<select name = 'fairway".$i."' >\n";
-                        echo "<option value = 'c' >Center </option>\n";
-                        echo "<option value = 'l' > Left</option>\n";
-                        echo "<option value = 'r' > Right</option>\n";
-                        echo "<option value = 'o' > Out of Bounds </option>\n";
-                        echo "<option value = 'p' > Par 3 </option>\n";
-                    echo "</select>\n";
+                echo "<select name = 'fairway".$i."' >\n";
+                echo "<option value = 'c' >Center </option>\n";
+                echo "<option value = 'l' > Left</option>\n";
+                echo "<option value = 'r' > Right</option>\n";
+                echo "<option value = 'o' > O.B. </option>\n";
+                echo "</select>\n";
                 echo "</td>\n";
-                echo "<td> O.B.: <input type = 'checkbox' name = 'penalties".$i."' value = 'O.B.' ></td>\n";
-                echo "<td> Hazard:<input type = 'checkbox' name = 'penalties".$i."' value = 'Hazard' ></td>\n";
+                echo "<td><input type = 'number' name = 'penalties".$i."' value = '0' required></td>\n";
                 echo "</tr>\n";
             }
-?>
-        </tbody>
-    </table>
-</form>
+            ?>
+            </tbody>
+        </table>
+        <br>
+        <center><input type="button" value="Get statistics" onclick="getStatistics()"></center>
+    </form>
+    <div id = "results"></div>
+</fieldset>
 </body>
+<footer>
+    <br><p>Made by Bernardo Treviño and Ovidio Villarreal</p>
+</footer>
 </html>
